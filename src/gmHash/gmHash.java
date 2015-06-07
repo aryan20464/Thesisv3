@@ -128,6 +128,27 @@ public class gmHash
                 org.add(rs2.getString(1));
             }
 
+            //checking the sab form data:
+            System.out.println("Checked datta with SAB form");
+            for(int m=0;m<456;m++)
+            {
+                System.out.println("Series : "+ m +" phash "+gmhash_series.get(m).get(0));
+                for(int n=1;n<gmhash_series.get(m).size();n++)
+                {
+                    for(int bf=0;bf<9110;bf++)
+                    {
+                        if(gmhash_series.get(m).get(n).equals(org.get(bf)))
+                        {
+                            System.out.println("Entry present "+gmhash_series.get(m).get(n));
+                        }
+                    }
+                }
+            }
+            System.out.println(gmhash_series.get(452));
+
+
+
+
 
         }
         catch (ClassNotFoundException e)
