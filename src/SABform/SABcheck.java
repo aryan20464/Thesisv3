@@ -45,4 +45,42 @@ public class SABcheck
         }
 
     }
+
+    public static void check_gmHash_entries(ArrayList<ArrayList> gmhash_series)
+    {
+        try {
+            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny", "root", "2113");
+            Statement st2 = con2.createStatement();
+            ResultSet rs2 = st2.executeQuery("select idval from burgleform");
+
+            ArrayList<String> org = new ArrayList<>();
+            while (rs2.next()) {
+                org.add(rs2.getString(1));
+            }
+
+            for(int m=0;m<456;m++)
+            {
+                System.out.println("Series : "+ m +" phash "+gmhash_series.get(m).get(0));
+                for(int n=1;n<gmhash_series.get(m).size();n++)
+                {
+                    for(int bf=0;bf<9110;bf++)
+                    {
+                        if(gmhash_series.get(m).get(n).equals(org.get(bf)))
+                        {
+                            System.out.println("Entry present "+gmhash_series.get(m).get(n));
+                        }
+                    }
+                }
+            }
+            System.out.println(gmhash_series.get(452));
+
+
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

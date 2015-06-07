@@ -2,6 +2,7 @@ package gmHash;
 
 import java.sql.*;
 import java.util.ArrayList;
+import SABform.SABcheck;
 
 /**
  * Created by chakri on 1/6/15.
@@ -129,6 +130,9 @@ public class gmHash
             }
 
             //checking the sab form data:
+            SABcheck.check_gmHash_entries(gmhash_series);
+
+            /*
             System.out.println("Checked datta with SAB form");
             for(int m=0;m<456;m++)
             {
@@ -144,11 +148,10 @@ public class gmHash
                     }
                 }
             }
-            System.out.println(gmhash_series.get(452));
+            System.out.println(gmhash_series.get(452));*/
 
-
-
-
+            //NOTE: Uncomment above code and comment the below function call if necessary it is done in this manner to make it
+            // as code more readable as per modules
 
         }
         catch (ClassNotFoundException e)
