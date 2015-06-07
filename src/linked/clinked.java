@@ -22,13 +22,23 @@ public class clinked
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny","root","2113");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny", "root", "2113");
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("select distinct(Combined),Spat,id1,id2 from linked order by Spat asc");
 
             Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny", "root", "2113");
             Statement st1 = con1.createStatement();
             ResultSet rs1 = st1.executeQuery("select distinct(Spat),Combined,id1,id2 from linked order by Spat asc");
+
+            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny", "root", "2113");
+            Statement st2 = con2.createStatement();
+            ResultSet rs2 = st2.executeQuery("select idval from burgleform");
+
+            ArrayList<String> org = new ArrayList<>();
+            while(rs2.next())
+            {
+                org.add(rs2.getString(1));
+            }
 
             ArrayList<String> id1 = new ArrayList<>();
             ArrayList<String> id1c = new ArrayList<>();
@@ -54,6 +64,7 @@ public class clinked
                 spatc.add(rs1.getBigDecimal(1));
             }
 
+
             System.out.println("dataset 1");
             for(int i=0;i<id1.size();i++)
             {
@@ -64,6 +75,24 @@ public class clinked
             {
                 System.out.println(i+1 +" "+id1c.get(i)+" "+id2c.get(i)+" "+combic.get(i)+" "+spatc.get(i));
             }
+
+            for(int m=0;m<29;m++)
+            {
+                System.out.println("entry "+(m+1)+" "+id1.get(m)+" "+id2.get(m));
+                for(int k=0;k<org.size();k++)
+                {
+                    if(org.get(k).equalsIgnoreCase(id1.get(m)))
+                    {
+                        System.out.println("this entry is present "+id1.get(m)+"at : "+k);
+                    }
+                    if(org.get(k).equalsIgnoreCase(id2.get(m)))
+                    {
+                        System.out.println("this entry is present "+id2.get(m)+"at : "+k);
+                    }
+                }
+            }
+
+
 
             for(int i=0;i<id1c.size();i++)
             {

@@ -65,11 +65,12 @@ public class gmHash
                 }
             }
             System.out.println("distincts");
-
+            int count=0;
             for(int i=0;i<dhash.size();i++)
             {
                 int k=0;
                 int dc=0;
+
                 String s = dhash.get(i);
                 PreparedStatement cmre = con.prepareStatement("select count(pHash) from gmHash where pHash=?");
                 cmre.setString(1,s);
@@ -88,8 +89,10 @@ public class gmHash
                     }
                 }
                 if(dc>=2) {
-                    System.out.println("Series" + (i + 1) + "with count" + dc);
-                    for (int g = k; g < (k + dc); g++) {
+                    System.out.println("Series" + (i + 1) + "with count" + dc +"series number "+count);
+                    count++;
+                    for (int g = k; g < (k + dc); g++)
+                    {
 
                         System.out.println(pHash.get(g) + " " + id.get(g) + " " + diary_no.get(g));
                     }

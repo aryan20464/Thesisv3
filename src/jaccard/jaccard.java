@@ -116,7 +116,4 @@ public class jaccard
        if(o==1 && t==1)return 1;
        else return 0;
    }
-    
-    
-    
 }
