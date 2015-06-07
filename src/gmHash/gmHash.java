@@ -17,6 +17,8 @@ public class gmHash
             ArrayList<String> pHash = new ArrayList<>();
             ArrayList<String> dhash = new ArrayList<>();
 
+            ArrayList<ArrayList> gmhash_series = new ArrayList<>();
+
             /* This is connection for getting all records in the gmHash in the ascending order of the pHash*/
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny","root","2113");
@@ -89,17 +91,44 @@ public class gmHash
                     }
                 }
                 if(dc>=2) {
-                    System.out.println("Series" + (i + 1) + "with count" + dc +"series number "+count);
+                    System.out.println("Series" + (i + 1) + "with count" + dc +"   Series "+(count+1));
                     count++;
+                    ArrayList<String> series_att = new ArrayList<>();
+                    series_att.add(pHash.get(k));
                     for (int g = k; g < (k + dc); g++)
                     {
-
                         System.out.println(pHash.get(g) + " " + id.get(g) + " " + diary_no.get(g));
+                        series_att.add(diary_no.get(g));
                     }
                     System.out.println("\n");
+                    gmhash_series.add(series_att);
                 }
-
             }
+
+
+            System.out.println(gmhash_series.size());
+
+            for(int out=0;out<gmhash_series.size();out++)
+            {
+                System.out.println("Series validated : "+ (out+1));
+                for(int inn=0;inn<gmhash_series.get(out).size();inn++)
+                {
+                    System.out.println(gmhash_series.get(out).get(inn));
+                }
+            }
+
+            Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/sunny", "root", "2113");
+            Statement st2 = con2.createStatement();
+            ResultSet rs2 = st2.executeQuery("select idval from burgleform");
+
+            ArrayList<String> org = new ArrayList<>();
+
+            while(rs2.next())
+            {
+                org.add(rs2.getString(1));
+            }
+
+
         }
         catch (ClassNotFoundException e)
         {

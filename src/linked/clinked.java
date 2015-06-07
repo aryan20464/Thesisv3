@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import SABform.SABcheck;
 
 
 /**
@@ -76,6 +77,7 @@ public class clinked
                 System.out.println(i+1 +" "+id1c.get(i)+" "+id2c.get(i)+" "+combic.get(i)+" "+spatc.get(i));
             }
 
+            /*
             for(int m=0;m<29;m++)
             {
                 System.out.println("entry "+(m+1)+" "+id1.get(m)+" "+id2.get(m));
@@ -91,7 +93,10 @@ public class clinked
                     }
                 }
             }
-
+            */
+            //NOTE: Uncomment above code and comment the below function call if necessary it is done in this manner to make it
+            // as code more readable as per modules
+            SABcheck.check_linked(id1,id2);
 
 
             for(int i=0;i<id1c.size();i++)
