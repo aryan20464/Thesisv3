@@ -8,7 +8,9 @@ import java.util.ArrayList;
  */
 public class SABcheck
 {
-  // This is a test
+    /**
+     * this method is used for checking crimes in the linked and gmHash with burgleform
+     */
 
     public static void check_linked(ArrayList<String> id1, ArrayList<String> id2)
     {

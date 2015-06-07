@@ -21,8 +21,12 @@ import java.util.logging.Logger;
  *
  * @author chakri
  */
+
 public class jaccard
 {
+    /**
+     * This class is used for calculating the jaccard distance between two different data entries
+     */
    public void jc_con() throws IOException
    {
        try 

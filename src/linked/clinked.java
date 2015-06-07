@@ -18,6 +18,10 @@ import SABform.SABcheck;
  */
 public class clinked
 {
+    /**
+     * this method is used for finding the linked cases in the linked table. Every crime in the this is present in burgleform
+     */
+
     public void clinked_connect()
     {
         try

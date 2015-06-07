@@ -9,6 +9,10 @@ import SABform.SABcheck;
  */
 public class gmHash
 {
+    /**
+     * this method is used for making the dataset out of the gmHash form.
+     */
+
     public void dataset2()
     {
         try
