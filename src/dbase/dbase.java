@@ -23,7 +23,7 @@ import java.sql.SQLException;
 public class dbase
 {
     /**
-     * this method is used for establishing connection to database and this is just a test case for finding the connection
+     * this method is used for establishing connection to database and this is just a test case for finding the connection is successful
      */
 public void dbase_connect()
     {
