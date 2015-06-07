@@ -47,7 +47,6 @@ public class jaccard
            int a = Integer.parseInt(br.readLine());
            ArrayList<int[]> a1 = new ArrayList<>();
            
-           
            if(a==1)
            {
               ResultSet rs1 = st.executeQuery("select neighbourless,neighbone,neighbsev,corner,woods,stdhigh,stdnorm,stdlow,villa,farm,townhouse,aptowned,aptrental,multilvl,singlelvl,apttop,aptbottom,activated,triggered,sabotaged,disabled,noalarm,mailemptied,intlighted,extlighting,streetlighting,vehicleondriveway,grassnowmaint,dogorsign,activeinneighbwatch,signalarm,sect41na,ownbusiness,incompanyregist,plannedabsence,spontabsence,homedurcrime,househldsrvc,homevisit,unknowncall,absenceonnet,kidsathome,tradeannounce,vhclatairp,crippleelderly,prevbreakin,sect54na,viewcover,noviewcover,basement,groundlvl,abovegroundlvl,sect62unknown,toolfromplace,escrouteprepd,drills,breaks,illegalkey,breakswindowin,unlocked,ventpos,sect64other,sect64unknown,patiodoor,mirrorpatiodoor,balconydoor,cellardoor,door,window,triplepanewindow,mailslot,sect65other,sect65unknown,carefulsearch,messy,bigmess,bulkygoods,nonbulkygoods,creddebcard,cellphone,alcoholtobacco,electronics,goldjewellery,cash,clothes,medicine,toys,weapons,safe,perfume,vehiclekeys,passid,sect82other,sect82na,fingerprint,dna,shoes,gloves,tires,visiblefibre,compareglass,goodstosearch,toolmark,sect91na,smallmark,medmark,largemark,lte5marks,gte6marks,colormark,comparecolor,witness,tips,searchablegoods,sect101na,camerafotage,traceother,nobpu from burgleform");
@@ -105,7 +104,7 @@ public class jaccard
        {
          sum1=sum1+interval[m]  ;
        }
-       System.out.println(sum1+" <-sum 1  sum->"+sum);
+       System.out.println(sum1+" <- sum 1 intersection and union  sum ->"+sum);
        return ((float)sum1/sum);
    }
    
