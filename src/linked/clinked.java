@@ -71,9 +71,10 @@ public class clinked
 
 
             System.out.println("dataset 1");
+            System.out.println("S.no\tid1\tid2\tCombined\tSpatial");
             for(int i=0;i<id1.size();i++)
             {
-                System.out.println(i + 1 + " " + id1.get(i) + " " + id2.get(i) + " " + combi.get(i) + " " + spat.get(i));
+                System.out.println("Series "+(i+1) + "\t" + id1.get(i) + " \t " + id2.get(i) + "\t " + combi.get(i) + "\t " + spat.get(i));
             }
             System.out.println("\n dataset 2");
             for(int i=0;i<id1c.size();i++)

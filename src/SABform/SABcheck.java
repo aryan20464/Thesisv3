@@ -59,22 +59,63 @@ public class SABcheck
             while (rs2.next()) {
                 org.add(rs2.getString(1));
             }
+            System.out.println("\n this is the series present in the sab form \n");
+            //remove this if needed
+            ArrayList<ArrayList> finalouter = new ArrayList<>();
 
+
+
+            //till here
+            int no_crimes=0;
             for(int m=0;m<456;m++)
             {
-                System.out.println("Series : "+ m +" phash "+gmhash_series.get(m).get(0));
+                ArrayList<String> finalinner = new ArrayList<>();//remove
+                finalinner.add(gmhash_series.get(m).get(0).toString());//remove
+                int display=0;int inncnt=0;
                 for(int n=1;n<gmhash_series.get(m).size();n++)
                 {
+                    inncnt=0;
                     for(int bf=0;bf<9110;bf++)
                     {
                         if(gmhash_series.get(m).get(n).equals(org.get(bf)))
                         {
                             System.out.println("Entry present "+gmhash_series.get(m).get(n));
+                            finalinner.add(gmhash_series.get(m).get(n).toString());
+                            display=1;inncnt++;
                         }
                     }
                 }
+                if(display==1)
+                {
+                    System.out.println("\nSeries : "+ m +" phash "+gmhash_series.get(m).get(0)+"crimes list:"+gmhash_series.get(m)+"\n");
+                    no_crimes++;
+                    finalouter.add(finalinner);//remove
+                }
             }
-            System.out.println(gmhash_series.get(452));
+            //System.out.println(gmhash_series.get(452));
+            System.out.println("\n no of crimes series are:"+no_crimes);
+            System.out.println("\n \ntest sereis "+finalouter.size());
+            for(int j=0;j<finalouter.size();j++)
+            {
+                System.out.println(j);
+                System.out.print(finalouter.get(j));
+                System.out.println("\n");
+            }
+
+            //Final dataset for gmHash
+            System.out.println("The final dataset ");
+            int finalcount=0;int x=0;
+            for(int j=0;j<finalouter.size();j++)
+            {
+                if(finalouter.get(j).size()>2)
+                {
+                    x++;
+                    System.out.println("series "+x+" \t "+finalouter.get(j)+"\n");
+                    //System.out.println("series "+j+" \t "+finalouter.get(j)+"\n"); if you want to verify with above output for series number
+                    finalcount++;
+                }
+            }
+            System.out.println("\n Final dataset size:"+finalcount);
 
 
 
